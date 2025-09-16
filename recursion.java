@@ -170,26 +170,68 @@
 //         sumof(num, 0);
 //     }
 
-public class recursion {
-    public static void printarms(int n,int sum,int org){
-        if(n==0){
-            if(sum==org){
-                System.out.println("arm");
-            }
-            else{
-                System.out.println("not");
-            }
-            return;
-        }
-        int rem=n%10;
-        sum=(rem*rem*rem)+sum;
-        printarms(n/10, sum,org);
+// public class recursion {
+//     public static void printarms(int n,int sum,int org){
+//         if(n==0){
+//             if(sum==org){
+//                 System.out.println("arm");
+//             }
+//             else{
+//                 System.out.println("not");
+//             }
+//             return;
+//         }
+//         int rem=n%10;
+//         sum=(rem*rem*rem)+sum;
+//         printarms(n/10, sum,org);
 
+
+//     }
+//     public static void main(String[] args) {
+//         int n=155;
+//         printarms(n, 0,n);
+        
+//     }
+// }
+// class Countevenodd{
+//     static void countevenodd(int range ,int even,int odd){
+//         if(range==0){
+//             System.out.println("evnn is " + even + " odd is " + odd);
+//             return;
+//         }
+//         if(range%2==0){
+//             even++;
+//         }
+//         else{
+//             odd++;
+//         }
+//         countevenodd(range-1, even, odd);
+//     }
+//     public static void main(String[] args) {
+//         countevenodd(15, 0, 0);
+        
+//     }
+// }
+class Countevenodd{
+    static int[] countevenodd(int range){
+        if(range==0){
+            int res[]=new int[2];
+            return res;
+        }
+       int res[] =countevenodd(range-1);
+       if(range%2==0){
+        res[0]=res[0]+1;
+       }
+       else{
+        res[1]=res[1]+1;
+       }
+       return res;
 
     }
     public static void main(String[] args) {
-        int n=155;
-        printarms(n, 0,n);
+        int arr[]=countevenodd(10);
+        System.out.println("even no" + arr[0]);
+        System.out.println("odd no"  + arr[1]);
         
     }
 }
